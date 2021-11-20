@@ -1,0 +1,62 @@
+<div class="container">
+  <mat-toolbar>
+      <span class="fill-remaining-space"></span>
+      <span>Albums</span>
+      <span class="fill-remaining-space"></span>
+  </mat-toolbar>
+</div>
+<form [formGroup]="albumform" class="normal-form">
+  <mat-grid-list cols="2" rowHeight="300px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="$key">
+        <mat-form-field>
+          <input formControlName="name" matInput placeholder="Nome">
+          <mat-error>Campo Obrigatório</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="email" matInput placeholder="Email">
+          <mat-error>Email Inválido</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="title" matInput placeholder="Título">
+          <mat-error *ngIf="albumform.controls['title'].errors?.['required']">Campo Obrigatório</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <div class="add-bottom-padding">
+          <mat-radio-group formControlName="gender">
+              <mat-radio-button value="1">Masculino</mat-radio-button>
+              <mat-radio-button value="2">Feminino</mat-radio-button>
+              <mat-radio-button value="3">Outro</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>Escolha um gênero </mat-label>
+          <mat-select formControlName="types" [formControl]="types" multiple>
+            <mat-select-trigger>
+              {{types.value ? types.value[0] : ''}}
+              <span *ngIf="types.value?.length > 1" class="example-additional-selection">
+                (+{{types.value.length - 1}} {{types.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of typesList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>calendário</mat-label>
+          <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker color="accent"></mat-datepicker>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" (click)="salvarAlbum()" [disabled]="albumform.invalid">Submit</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+<app-pagination-albums></app-pagination-albums>
