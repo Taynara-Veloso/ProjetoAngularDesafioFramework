@@ -12,7 +12,17 @@ export class ApiPostsService {
   public getPosts():Observable<ApiPosts[]>{
     return this.http.get<ApiPosts[]>('https://jsonplaceholder.typicode.com/posts')
   }
-  /*public insertPosts():Observable<ApiPosts[]>{
-    return this.getPosts.push()
-  }*/
+  public addPost(post: ApiPosts | null):Observable<ApiPosts>{
+    return this.http.post<ApiPosts>('https://jsonplaceholder.typicode.com/posts', post)
+
+  }
+  public atualizaPost(id: number, post: ApiPosts | null):Observable<ApiPosts>{
+    return this.http.put<ApiPosts>(`https://jsonplaceholder.typicode.com/posts/${id}`, post)
+
+  }
+  public apagarPost(id: number):Observable<ApiPosts>{
+    return this.http.delete<ApiPosts>(`https://jsonplaceholder.typicode.com/posts/${id}`)
+  }
 }
+
+

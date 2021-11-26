@@ -18,6 +18,8 @@ import { PaginationPostsComponent } from './posts/pagination-posts/pagination-po
 import { PostsComponent } from './posts/posts.component';
 
 import { ApiAlbumsService } from './albums/api-albums.service';
+import { FormularioAlbumComponent } from './albums/formulario-album/formulario-album.component';
+import { DialogPostsComponent } from './posts/dialog-posts/dialog-posts.component';
 
 
 
@@ -31,6 +33,8 @@ import { ApiAlbumsService } from './albums/api-albums.service';
     PaginationTodosComponent,
     PaginationAlbumsComponent,
     PaginationPostsComponent,
+    FormularioAlbumComponent,
+    DialogPostsComponent,
 
   ],
   imports: [

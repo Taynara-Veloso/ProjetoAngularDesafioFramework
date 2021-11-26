@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Adicionar filme e sinopse</h1>
+<div mat-dialog-content>
+  <mat-form-field >
+    <mat-label> Título do Filme/Série/Jogos </mat-label>
+    <input matInput [(ngModel)]="data.title">
+  </mat-form-field>
+  <mat-form-field >
+    <mat-label> sinopse </mat-label>
+    <input matInput [(ngModel)]="data.body">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>

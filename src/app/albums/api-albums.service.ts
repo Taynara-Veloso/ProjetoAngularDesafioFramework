@@ -15,5 +15,16 @@ export class ApiAlbumsService {
   }
   public addAlbum(album: ApiAlbums | null):Observable<ApiAlbums>{
     return this.http.post<ApiAlbums>('https://jsonplaceholder.typicode.com/albums', album)
+
+  }
+  public atualizaAlbum(id: number, album: ApiAlbums | null):Observable<ApiAlbums>{
+    return this.http.put<ApiAlbums>(`https://jsonplaceholder.typicode.com/albums/${id}`, album)
+
+  }
+  public apagarAlbum(id: number):Observable<ApiAlbums>{
+    return this.http.delete<ApiAlbums>(`https://jsonplaceholder.typicode.com/albums/${id}`)
   }
 }
+
+
+

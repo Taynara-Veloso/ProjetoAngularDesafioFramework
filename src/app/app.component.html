@@ -1,9 +1,35 @@
 <div>
   <mat-toolbar>
       <div fxShow="true" fxHide.gt-sm="true">
-        <button mat-button (click)="sidenav.toggle() " >
-          <mat-icon>menu</mat-icon>
+        <button mat-icon-button [matMenuTriggerFor]="menu" >
+          <mat-icon>more_vert</mat-icon>
         </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon><span class="material-icons">
+              home
+              </span></mat-icon>
+            <span><a mat-button routerLink="./home">Home</a></span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon><span class="material-icons">
+              import_contacts
+              </span></mat-icon>
+            <span><a mat-button routerLink="./albums">Albuns</a></span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon><span class="material-icons">
+              feed
+              </span></mat-icon>
+            <span><a mat-button routerLink="./posts">Posts</a></span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon><span class="material-icons">
+              collections
+              </span></mat-icon>
+            <span><a mat-button routerLink="./todos">Todos</a></span>
+          </button>
+        </mat-menu>
       </div>
       <a class="companyName" >
         <span>Desafio Framework Digital</span>

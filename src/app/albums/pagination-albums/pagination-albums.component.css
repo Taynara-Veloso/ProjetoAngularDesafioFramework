@@ -12,7 +12,12 @@ table{
   padding-left: 20px;
   font-size: 15px;
 }
+.mat-column-editar{
+  padding-left: 20px;
+  font-size: 15px;
+}
 .mat-column-body{
   padding-left: 15px;
   font-style: italic;
 }
+
